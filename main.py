@@ -28,11 +28,11 @@ def banner():
     print("INSTA: nehal_dark_trap")
     print("=============================\033[0m")
 
-def open_link(link):
+def open_link(url):
     try:
-        os.system(f"xdg-open '{link}'")
+        os.system(f"xdg-open '{url}' > /dev/null 2>&1 &")
     except:
-        webbrowser.open(link)
+        webbrowser.open(url)
 
 def subscription_lock():
     while True:
@@ -44,13 +44,16 @@ def subscription_lock():
         print("\033[0m", end="")
 
         if choice == "1":
-            print("🔁 Opening YouTube...")
+            print("\n🔁 Opening YouTube Channel...")
             open_link("https://youtube.com/@nehal_dark_trap?si=CGE96-qu0BhVGHvi")
-            time.sleep(2)  # Wait a bit before asking again
+            print("📌 After subscribing, select 2 to continue.")
+            time.sleep(2)
         elif choice == "2":
+            print("✅ Subscription confirmed.")
+            time.sleep(1)
             break
         else:
-            print("❌ Invalid input. Try again.")
+            print("❌ Invalid choice. Try again.")
             time.sleep(1)
 
 def main_menu():
@@ -64,13 +67,15 @@ def main_menu():
         print("\033[0m", end="")
 
         if choice == "1":
+            print("🔁 Opening Telegram group...")
             open_link("https://t.me/NEHAL_DARK_TRAP")
         elif choice == "2":
+            print("🔁 Opening Instagram...")
             open_link("https://www.instagram.com/nehal_dark_trap?igsh=b2YxMDJnbjlzcm5r")
         elif choice == "3":
             scrape_users()
         else:
-            print("❌ Invalid input!")
+            print("❌ Invalid choice!")
             time.sleep(1)
 
 def scrape_users():
@@ -110,7 +115,7 @@ def scrape_users():
 
     client.disconnect()
 
-# ▶️ Start Tool
+# ▶️ Run Tool
 animate_start()
-subscription_lock()  # No exit anymore after option 1
+subscription_lock()
 main_menu()
