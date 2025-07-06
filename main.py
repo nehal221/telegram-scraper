@@ -30,7 +30,7 @@ def banner():
 
 def open_link(link):
     try:
-        os.system(f"xdg-open '{link}'")  # Forcefully open browser
+        os.system(f"xdg-open '{link}'")
     except:
         webbrowser.open(link)
 
@@ -46,6 +46,7 @@ def subscription_lock():
         if choice == "1":
             print("🔁 Opening YouTube...")
             open_link("https://youtube.com/@nehal_dark_trap?si=CGE96-qu0BhVGHvi")
+            time.sleep(2)  # Wait a bit before asking again
         elif choice == "2":
             break
         else:
@@ -109,7 +110,7 @@ def scrape_users():
 
     client.disconnect()
 
-# 🟢 Run Tool
+# ▶️ Start Tool
 animate_start()
-subscription_lock()
+subscription_lock()  # No exit anymore after option 1
 main_menu()
